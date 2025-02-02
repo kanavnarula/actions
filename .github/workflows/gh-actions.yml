@@ -7,4 +7,6 @@ jobs:
       - name: Greetings
         run: echo "Hello World"
       - name: Goodbye
-        run: echo "See you later"
+        run: |
+          echo "See you later"
+          echo "Printing multiple lines"
