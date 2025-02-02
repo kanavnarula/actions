@@ -19,5 +19,5 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: initiate-script
-        run: ./scripts/import.sh
+        run: sh scripts/import.sh
       
