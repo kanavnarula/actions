@@ -11,6 +11,9 @@ jobs:
           echo "See you later"
           echo "Printing multiple lines"
   checkout-job:
+    env:
+      DATABASE: testing
+      USERNAME: actions
     runs-on: ubuntu-latest
     steps:
       - name: checkout
