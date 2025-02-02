@@ -18,6 +18,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: list
-        run: ls -ltr
+      - name: initiate-script
+        run: ./scripts/import.sh
       
