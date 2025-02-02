@@ -12,8 +12,8 @@ jobs:
           echo "Printing multiple lines"
   checkout-job:
     env:
-      DATABASE: testing
-      USERNAME: actions
+      DATABASE: ${{ secrets.DATABASE }}
+      USERNAME: ${{ secrets.USERNAME }}
     runs-on: ubuntu-latest
     steps:
       - name: checkout
