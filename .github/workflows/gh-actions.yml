@@ -10,3 +10,11 @@ jobs:
         run: |
           echo "See you later"
           echo "Printing multiple lines"
+  checkout-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: list
+        run: ls -ltr
+      
