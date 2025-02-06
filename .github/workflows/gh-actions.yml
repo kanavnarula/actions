@@ -1,5 +1,16 @@
 name: First_workflow
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      env:
+        description: 'environment to ingest to'
+        required: true
+        type: choice
+        options:
+          - dev
+          - stage
+          - prod
+        default: 'dev'
 jobs:
   first-job:
     runs-on: ubuntu-latest
@@ -18,6 +29,19 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
+      - name: Set environment variables
+        run: |
+          if [ "${{ inputs.env }}" == "dev" ]; then
+            echo "GMS_HOST=https://dev.com" >> $GITHUB_ENV
+            echo "-----------"
+            echo $GITHUB_ENV
+          elif [ "${{ inputs.env }}" == "stage" ]; then
+            echo "GMS_HOST=https://stage.com" >> $GITHUB_ENV
+          elif [ "${{ inputs.env }}" == "prod" ]; then
+            echo "GMS_HOST=https://prod.com" >> $GITHUB_ENV
+          fi
+
+          echo "GMS_CA_PATH=$(readlink -f decrypted-secrets/gms.ca.crt)" >> $GITHUB_ENV
       - name: initiate-script
         run: sh scripts/import.sh
       
