@@ -40,8 +40,6 @@ jobs:
           elif [ "${{ inputs.env }}" == "prod" ]; then
             echo "GMS_HOST=https://prod.com" >> $GITHUB_ENV
           fi
-
-          echo "GMS_CA_PATH=$(readlink -f decrypted-secrets/gms.ca.crt)" >> $GITHUB_ENV
       - name: initiate-script
         run: sh scripts/import.sh
       
