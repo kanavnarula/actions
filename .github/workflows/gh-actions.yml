@@ -25,6 +25,7 @@ jobs:
     env:
       DATABASE: ${{ secrets.DATABASE }}
       USERNAME: ${{ secrets.USERNAME }}
+      TOKEN: ${{ secrets.TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -41,5 +42,5 @@ jobs:
             echo "GMS_HOST=https://prod.com" >> $GITHUB_ENV
           fi
       - name: initiate-script
-        run: sh scripts/import.sh
+        run: sh scripts/import.sh ${{ inputs.env }} $GITHUB_ENV 
       
