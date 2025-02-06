@@ -1,0 +1,4 @@
+user5 VIEWER
+user6 ADMIN
+user1 VIEWER
+user2 ADMIN
