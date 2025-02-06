@@ -43,7 +43,7 @@ jobs:
           fi
       - name: Check for files in metadata directory
         run: |
-            for file in $(find metadata/config_*.txt); do
+            for file in $(find metadata/config*.txt); do
               sh scripts/import.sh ${{ inputs.env }} $file
             done
       # - name: initiate-script
