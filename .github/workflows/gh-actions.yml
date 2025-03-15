@@ -46,6 +46,4 @@ jobs:
             for file in $(find metadata/config*.txt); do
               sh scripts/import.sh ${{ inputs.env }} $file
             done
-      # - name: initiate-script
-      #   run: sh scripts/import.sh ${{ inputs.env }} $GITHUB_ENV 
-      
+
